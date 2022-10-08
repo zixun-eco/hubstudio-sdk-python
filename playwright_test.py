@@ -20,7 +20,6 @@ if __name__ == '__main__':
     if not env_open_result.success:
         sys.exit()
     env_reply_json = json.loads(env_open_result.result)
-    print("env_open_result:", env_open_result)
 
     # 获取playwright浏览器会话
     browser_context = get_browser_context(env_reply_json.get("debuggingPort"))
