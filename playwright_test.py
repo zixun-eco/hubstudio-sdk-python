@@ -4,29 +4,27 @@ import json
 import sys
 
 from handler.ClientOpenHandler import open_client
-from handler.EnvListHandler import list_env
 from handler.EnvOpenHandler import open_env
-from handler.WebdriverHandler import open_baidu, get_driver
+from handler.PlaywrightHandler import get_browser_context, open_baidu
 
 if __name__ == '__main__':
+    '''需要安装playwright依赖: pip install playwright '''
 
     # 启动客户端
     open_result = open_client(group_code="10814480")
     if not open_result.success:
         sys.exit()
 
-    # 获取环境列表
-    # list_env_result = list_env()
-    # if not list_env_result.success:
-    #     sys.exit()
-
     # 打开环境，获取webdriver调试端口
-    env_open_result = open_env("10814480", "8252770")
+    env_open_result = open_env(group_code="10814480", container_code="36767766")
     if not env_open_result.success:
         sys.exit()
     env_reply_json = json.loads(env_open_result.result)
 
-    # 获取webdriver
-    driver = get_driver(env_reply_json.get("debuggingPort"))
+    # 获取playwright浏览器会话
+    browser_context = get_browser_context(env_reply_json.get("debuggingPort"))
     # 运行脚本
-    open_baidu(driver)
+    open_baidu(browser_context)
+
+
+
