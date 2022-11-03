@@ -4,5 +4,3 @@
 class EnvGroupListModel:
     """分组列表"""
 
-    # 团队code 必填
-    groupCode = None

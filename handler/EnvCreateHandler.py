@@ -12,14 +12,12 @@ def create_env():
     request = EnvCreateRequest()
     # 参数设置方法一
     model = EnvCreateModel()
-    model.groupCode = 10814480
     model.asDynamicType = 2
     model.containerName = "新环境6"
     model.proxyTypeName = "HTTP"
     request.biz_model = model
     # 参数设置方法二
     # request.biz_model = {
-    #     "groupCode": 10814480,
     #     "asDynamicType" = 2,
     #     "containerName" = "新环境6",
     #     "proxyTypeName" = "HTTP"

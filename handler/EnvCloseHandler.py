@@ -7,16 +7,14 @@ from model.EnvCloseModel import EnvCloseModel
 from request.EnvCloseRequest import EnvCloseRequest
 
 
-def close_env(group_code, container_code):
+def close_env(container_code):
     """关闭环境"""
     request = EnvCloseRequest()
     # 参数设置方法一
     model = EnvCloseModel()
-    model.groupCode = group_code
     model.containerCode = container_code
     request.biz_model = model
     # request.biz_model = {
-    #     "groupCode": group_code,
     #     "containerCode": container_code
     # }
     request.request_id = str(uuid.uuid4())
@@ -31,4 +29,4 @@ def close_env(group_code, container_code):
 
 
 if __name__ == '__main__':
-    close_env("11236255", "36598110")
+    close_env("36598110")

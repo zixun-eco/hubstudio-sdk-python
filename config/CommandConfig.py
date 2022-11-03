@@ -15,7 +15,8 @@ class CommandConfig:
     # 连接端口
     socket_port = 6873
     # webdriver程序路径
-    webdriver_path = r".\config\chromedriver100.exe"
+    webdriver_path_100 = r".\config\chromedriver100.exe"
+    webdriver_path_105 = r".\config\chromedriver105.exe"
 
 
 def create_client():

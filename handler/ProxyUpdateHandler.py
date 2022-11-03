@@ -12,7 +12,6 @@ def update_proxy():
     request = ProxyUpdateRequest()
     # 参数设置方法一
     model = ProxyUpdateModel()
-    model.groupCode = 10814480
     model.containerCode = 8252570
     model.asDynamicType = 2
     model.proxyTypeName = "不使用代理"
@@ -25,7 +24,6 @@ def update_proxy():
     request.biz_model = model
     # 参数设置方法二
     # request.biz_model = {
-    #     "groupCode": 10814480,
     #     "containerCode" = 8252570,
     #     "asDynamicType" = 2,
     #     "proxyTypeName" = "不使用代理"

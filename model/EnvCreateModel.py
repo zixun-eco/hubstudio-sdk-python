@@ -4,9 +4,6 @@
 class EnvCreateModel:
     """创建环境"""
 
-    # 团队code 必填
-    groupCode = None
-
     # 使用方式 1静态 2动态
     asDynamicType = None
 
