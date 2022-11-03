@@ -4,9 +4,6 @@
 class EnvListModel:
     """环境列表"""
 
-    # 团队code 必填
-    groupCode = None
-
     # 环境id列表
     containerCodes = []
 

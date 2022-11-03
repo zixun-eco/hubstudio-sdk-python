@@ -4,9 +4,6 @@
 class ProxyUpdateModel:
     """更新代理"""
 
-    # 团队code 必填
-    groupCode = None
-
     # 环境id 必填
     containerCode = None
 
