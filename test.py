@@ -4,29 +4,33 @@ import json
 import sys
 
 from handler.ClientOpenHandler import open_client
-from handler.EnvListHandler import list_env
+from handler.EnvCreateHandler import create_env
 from handler.EnvOpenHandler import open_env
-from handler.WebdriverHandler import open_baidu, get_driver
+from handler.WebdriverHandler import open_baidu, get_driver_by_version
 
 if __name__ == '__main__':
 
     # 启动客户端
-    open_result = open_client(group_code="10814480")
-    if not open_result.success:
+    open_result = open_client(group_code="11236255")
+    if not open_result:
         sys.exit()
 
-    # 获取环境列表
-    # list_env_result = list_env()
-    # if not list_env_result.success:
-    #     sys.exit()
+    # 创建环境
+    create_env_res = create_env()
+    if not create_env_res.success:
+        sys.exit()
+
+    create_json = json.loads(create_env_res.result)
+    container_code = create_json["containerCode"]
+    core_version = create_json["coreVersion"]
 
     # 打开环境，获取webdriver调试端口
-    env_open_result = open_env("10814480", "8252770")
+    env_open_result = open_env(container_code)
     if not env_open_result.success:
         sys.exit()
     env_reply_json = json.loads(env_open_result.result)
 
     # 获取webdriver
-    driver = get_driver(env_reply_json.get("debuggingPort"))
+    driver = get_driver_by_version(core_version, env_reply_json.get("debuggingPort"))
     # 运行脚本
     open_baidu(driver)

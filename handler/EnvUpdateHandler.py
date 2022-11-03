@@ -12,7 +12,6 @@ def update_env():
     request = EnvUpdateRequest()
     # 参数设置方法一
     model = EnvUpdateModel()
-    model.groupCode = 10814480
     model.containerCode = 8252570
     model.containerName = "新环境4-更新"
     model.remark = "测试"
@@ -20,7 +19,6 @@ def update_env():
     request.biz_model = model
     # 参数设置方法二
     # request.biz_model = {
-    #     "groupCode": 10814480,
     #     "containerCode" = 8252570,
     #     "containerName" = "新环境4-更新",
     #     "remark" = "测试"

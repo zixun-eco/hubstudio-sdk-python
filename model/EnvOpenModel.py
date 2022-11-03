@@ -2,13 +2,16 @@
 # -*- coding: UTF-8 -*-
 
 class EnvOpenModel:
-    # 团队code
-    groupCode = None
 
-    # 环境code
-    containerCode = None
+    def __init__(self):
+        # 环境code
+        self.containerCode = None
+        # 是否无头模式
+        self.isHeadless = False
+        self.isWebDriverReadOnlyMode = True
+        # 启动参数
+        self.args = []
 
-    # 是否无头模式
-    isHeadless = False
-
-    isWebDriverReadOnlyMode = True
+    def add_argument(self, argument):
+        if argument:
+            self.args.append(argument)

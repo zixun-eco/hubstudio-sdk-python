@@ -12,15 +12,13 @@ def list_env():
     request = EnvListRequest()
     # 参数设置方法一
     model = EnvListModel()
-    model.groupCode = 10814480
     model.current = 1
     model.size = 10
-    model.noTag = 1
+    # model.noTag = 1
     # model.containerCodes = [8254560]
     request.biz_model = model
     # 参数设置方法二
     # request.biz_model = {
-    #     "groupCode": 10814480,
     #     "current" = 1,
     #     "size" = 10
     # }

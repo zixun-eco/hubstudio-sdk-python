@@ -12,7 +12,7 @@ def get_browser_context(port):
 
 
 def open_baidu(browser_context):
-    # 第一个标签页
+    # 使用第一个标签页打开playwright官网
     page = browser_context.pages[0]
     page.goto("https://playwright.dev/")
     print(page.title())
