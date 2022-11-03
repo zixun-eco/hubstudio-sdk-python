@@ -12,7 +12,7 @@ def open_env(container_code):
     request = EnvOpenRequest()
     # 参数设置方法一
     model = EnvOpenModel()
-    model.containerCode = container_code
+    model.containerCode = str(container_code)
     model.isHeadless = False
     model.isWebDriverReadOnlyMode = True
     model.add_argument("--disable-extensions")  # 禁用插件

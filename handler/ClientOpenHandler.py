@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import subprocess
+import sys
 import uuid
 
 from config.CommandConfig import client, CommandConfig
@@ -23,13 +24,14 @@ def open_client(group_code):
                 break
             if "Update complete, need reopen" == line_str:  # 判断更新完成需要重新启动
                 print("程序更新完成，请重新启动")
-                return
+                return False
             if "Program started" in line_str:  # 判断程序已启动
                 print("程序已启动，无需重复启动")
-                return
+                return True
             line = p.stdout.readline()
     except Exception as err:
         print(err)
+        sys.exit()
 
     return open_client_change_team(group_code)
 
@@ -47,9 +49,10 @@ def open_client_change_team(group_code):
     response = client.execute(request)
     if response.success:
         print(response.result)
+        return True
     else:
         print(response.message)
-    return response
+        return False
 
 
 if __name__ == '__main__':

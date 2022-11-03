@@ -14,7 +14,7 @@ def create_env():
     model = EnvCreateModel()
     model.asDynamicType = 2
     model.containerName = "新环境6"
-    model.proxyTypeName = "HTTP"
+    model.proxyTypeName = "不使用代理"
     request.biz_model = model
     # 参数设置方法二
     # request.biz_model = {
@@ -31,6 +31,7 @@ def create_env():
     else:
         print("创建环境失败")
         print(response.message)
+    return response
 
 
 if __name__ == '__main__':
