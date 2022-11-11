@@ -12,11 +12,11 @@ if __name__ == '__main__':
 
     # 启动客户端
     open_result = open_client(group_code="10814480")
-    if not open_result.success:
+    if not open_result:
         sys.exit()
 
     # 打开环境，获取webdriver调试端口
-    env_open_result = open_env(group_code="10814480", container_code="36767766")
+    env_open_result = open_env(container_code="36767766")
     if not env_open_result.success:
         sys.exit()
     env_reply_json = json.loads(env_open_result.result)
