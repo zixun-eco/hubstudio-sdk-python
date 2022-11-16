@@ -26,6 +26,12 @@ def get_driver_by_version(core_version, port):
         return None
 
 
+def get_driver_by_path(webdriver_path, port):
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("debuggerAddress", '127.0.0.1:' + str(port))
+    return webdriver.Chrome(webdriver_path, options=options)
+
+
 def open_baidu(driver):
     driver.get("https://www.baidu.com/")
     driver.implicitly_wait(10)
